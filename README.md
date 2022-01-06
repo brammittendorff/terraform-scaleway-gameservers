@@ -1,8 +1,13 @@
 # Gameservers
 
+You can spawn *unlimited* gameservers here with Terraform, Scaleway, cloud-init. Current games supported:
+
+- OpenTTD
+- OpenRA
+
 ## Configuration
 
-We store our access key and secret key inside of scaleway. You can use the devops@pescheck.nl account to acces it. To add the environment variables you can create a file called `keys.sh` and add the contents:
+The configuration is simple get your access key and secret key and project id from scaleway. To add the environment variables you can create a file called `keys.sh` and add the contents:
 
 ```bash
 export SCW_ACCESS_KEY="my-access-key"
