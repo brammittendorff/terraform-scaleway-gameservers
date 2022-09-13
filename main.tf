@@ -4,13 +4,13 @@ data "template_file" "userdata" {
   template = file("${path.module}/cloud-init.yml")
 
   vars = {
-    distrib        = regex("^ubuntu|debian", var.server_image)
-    user           = var.username
-    server_name    = var.server_name
-    server_count   = var.server_count
-    current_server = count.index
-    game_password  = var.game_password
-    current_ip     = scaleway_instance_ip.public_ip[count.index].id
+    distrib                 = regex("^ubuntu|debian", var.server_image)
+    user                    = var.username
+    server_name             = var.server_name
+    server_count            = var.server_count
+    current_server          = count.index
+    game_password           = var.game_password
+    current_ip              = scaleway_instance_ip.public_ip[count.index].id
   }
 }
 
@@ -37,6 +37,11 @@ resource "scaleway_instance_security_group" "game_ports" {
   inbound_rule {
     action = "accept"
     port   = "1234"
+  }
+
+  inbound_rule {
+    action = "accept"
+    port   = "11753"
   }
 }
 

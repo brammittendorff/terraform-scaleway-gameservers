@@ -54,13 +54,13 @@ write_files:
       [network]
       commands_per_frame = 2
       max_commands_in_queue = 16
-      bytes_per_frame = 8
-      bytes_per_frame_burst = 256
-      max_init_time = 100
-      max_join_time = 500
-      max_download_time = 1000
-      max_password_time = 2000
-      max_lag_time = 500
+      bytes_per_frame = 1024
+      bytes_per_frame_burst = 10240
+      max_init_time = 10000
+      max_join_time = 50000
+      max_download_time = 10000
+      max_password_time = 20000
+      max_lag_time = 50000
       pause_on_join = false
       server_port = 3979
       server_admin_port = 3977
@@ -431,8 +431,8 @@ write_files:
       tree_placer = 2
       heightmap_rotation = 0
       se_flat_world_height = 1
-      map_x = 11
-      map_y = 11
+      map_x = 10
+      map_y = 10
       water_borders = 0
       custom_town_number = 1
       custom_terrain_type = 30
@@ -463,7 +463,7 @@ write_files:
       industry_platform = 1
       freeform_edges = true
       extra_tree_placement = 2
-      
+
       [currency]
       rate = 1
       separator = "."
@@ -512,7 +512,7 @@ write_files:
       server_name = -: pescheck.io/vacancies :- #${current_server} FLAT|TRAIN|NOBRK|1950-3000
       connect_to_ip = 
       last_joined = 
-            
+          
       [server_bind_addresses]
 
       [servers]
@@ -523,6 +523,273 @@ write_files:
       version_string = 12.1
       version_number = 1C186D64
       ini_version = 2
+
+  - owner: root:root
+    path: /home/${user}/.openrct2config/OpenRCT2/groups.json
+    content: |
+      {
+          "default_group": 2,
+          "groups": [
+              {
+                  "id": 0,
+                  "name": "Admin",
+                  "permissions": [
+                      "PERMISSION_CHAT",
+                      "PERMISSION_TERRAFORM",
+                      "PERMISSION_SET_WATER_LEVEL",
+                      "PERMISSION_TOGGLE_PAUSE",
+                      "PERMISSION_CREATE_RIDE",
+                      "PERMISSION_REMOVE_RIDE",
+                      "PERMISSION_BUILD_RIDE",
+                      "PERMISSION_RIDE_PROPERTIES",
+                      "PERMISSION_SCENERY",
+                      "PERMISSION_PATH",
+                      "PERMISSION_CLEAR_LANDSCAPE",
+                      "PERMISSION_GUEST",
+                      "PERMISSION_STAFF",
+                      "PERMISSION_PARK_PROPERTIES",
+                      "PERMISSION_PARK_FUNDING",
+                      "PERMISSION_KICK_PLAYER",
+                      "PERMISSION_MODIFY_GROUPS",
+                      "PERMISSION_SET_PLAYER_GROUP",
+                      "PERMISSION_CHEAT",
+                      "PERMISSION_TOGGLE_SCENERY_CLUSTER",
+                      "PERMISSION_PASSWORDLESS_LOGIN",
+                      "PERMISSION_MODIFY_TILE",
+                      "PERMISSION_EDIT_SCENARIO_OPTIONS"
+                  ]
+              },
+              {
+                  "id": 1,
+                  "name": "Spectator",
+                  "permissions": [
+                      "PERMISSION_CHAT"
+                  ]
+              },
+              {
+                  "id": 2,
+                  "name": "User",
+                  "permissions": [
+                      "PERMISSION_CHAT",
+                      "PERMISSION_TERRAFORM",
+                      "PERMISSION_SET_WATER_LEVEL",
+                      "PERMISSION_TOGGLE_PAUSE",
+                      "PERMISSION_CREATE_RIDE",
+                      "PERMISSION_REMOVE_RIDE",
+                      "PERMISSION_BUILD_RIDE",
+                      "PERMISSION_RIDE_PROPERTIES",
+                      "PERMISSION_SCENERY",
+                      "PERMISSION_PATH",
+                      "PERMISSION_CLEAR_LANDSCAPE",
+                      "PERMISSION_GUEST",
+                      "PERMISSION_STAFF",
+                      "PERMISSION_PARK_PROPERTIES",
+                      "PERMISSION_PARK_FUNDING",
+                      "PERMISSION_TOGGLE_SCENERY_CLUSTER"
+                  ]
+              }
+          ]
+      }
+
+  - owner: root:root
+    path: /home/${user}/.openrct2config/OpenRCT2/users.json
+    content: |
+      [
+          {
+              "groupId": 0,
+              "hash": "",
+              "name": "pescheck"
+          },
+          {
+              "groupId": 0,
+              "hash": "25e012f1702d50300d98ddec131539d13c0f5930",
+              "name": "bram"
+          },
+          {
+              "groupId": 0,
+              "hash": "a71ed797c7e49fad5f4807fe7b979966874bbebb",
+              "name": "[Legolan]GoldenBatt"
+          },
+          {
+              "groupId": 0,
+              "hash": "5963dc2d55967b6bf45afc52f0ce6dfcd2055fc1",
+              "name": "Kebin in the woods"
+          },
+          {
+              "groupId": 0,
+              "hash": "76614fe0e1a3998752ff8a7b51c0e14e084c04cd",
+              "name": "pescheck #2"
+          }
+      ]
+
+  - owner: root:root
+    path: /home/${user}/.openrct2config/OpenRCT2/plugin.store.json
+    content: |
+      {"remote-control":{"host":"0.0.0.0"}}
+
+  - owner: root:root
+    path: /home/${user}/.openrct2config/OpenRCT2/config.ini
+    content: |
+      [general]
+      always_show_gridlines = false
+      autosave = 1
+      autosave_amount = 10
+      confirmation_prompt = false
+      currency_format = EUR
+      custom_currency_rate = 10
+      custom_currency_affix = SUFFIX
+      custom_currency_symbol = "Ctm"
+      edge_scrolling = true
+      edge_scrolling_speed = 12
+      fullscreen_mode = 0
+      fullscreen_height = -1
+      fullscreen_width = -1
+      rct1_path = ""
+      game_path = ""
+      landscape_smoothing = true
+      language = nl-NL
+      measurement_format = METRIC
+      play_intro = false
+      save_plugin_data = true
+      debugging_tools = false
+      show_height_as_units = false
+      temperature_format = CELSIUS
+      window_height = -1
+      window_snap_proximity = 5
+      window_width = -1
+      default_display = 0
+      drawing_engine = SOFTWARE
+      uncap_fps = false
+      use_vsync = true
+      date_format = DD/MM/YY
+      auto_staff = true
+      handymen_mow_default = false
+      default_inspection_interval = 2
+      last_run_version = "0.3.5.1"
+      invert_viewport_drag = false
+      load_save_sort = NAME_ASCENDING
+      minimize_fullscreen_focus_loss = true
+      disable_screensaver = true
+      day_night_cycle = false
+      enable_light_fx = false
+      enable_light_fx_for_vehicles = false
+      upper_case_banners = false
+      disable_lightning_effect = false
+      allow_loading_with_incorrect_checksum = true
+      steam_overlay_pause = true
+      window_scale = 1.000000
+      scale_quality = SMOOTH_NEAREST_NEIGHBOUR
+      show_fps = false
+      multi_threading = false
+      trap_cursor = false
+      auto_open_shops = false
+      scenario_select_mode = 1
+      scenario_unlocking_enabled = true
+      scenario_hide_mega_park = true
+      last_game_directory = ""
+      last_landscape_directory = ""
+      last_scenario_directory = ""
+      last_track_directory = ""
+      use_native_browse_dialog = false
+      window_limit = 64
+      zoom_to_cursor = true
+      render_weather_effects = true
+      render_weather_gloom = true
+      show_guest_purchases = false
+      show_real_names_of_guests = true
+      allow_early_completion = false
+      virtual_floor_style = GLASSY
+      transparent_screenshot = true
+      transparent_water = true
+      last_version_check_time = 1641851613
+
+      [interface]
+      toolbar_show_finances = true
+      toolbar_show_research = true
+      toolbar_show_cheats = false
+      toolbar_show_news = false
+      toolbar_show_mute = false
+      toolbar_show_chat = false
+      toolbar_show_zoom = true
+      console_small_font = false
+      current_theme = "*RCT2"
+      current_title_sequence = "*OPENRCT2"
+      random_title_sequence = false
+      object_selection_filter_flags = 16383
+      scenarioselect_last_tab = 0
+
+      [sound]
+      audio_device = ""
+      master_sound = true
+      master_volume = 100
+      title_music = 2
+      sound = true
+      sound_volume = 100
+      ride_music = true
+      ride_music_volume = 100
+      audio_focus = false
+
+      [network]
+      player_name = "pescheck"
+      default_port = 11753
+      listen_address = ""
+      default_password = ""
+      stay_connected = true
+      advertise = true
+      advertise_address = ""
+      maxplayers = 16
+      server_name = "{INLINE_SPRITE}{254}{19}{00}{00} {PALEGOLD}pescheck.io/vacancies {BABYBLUE}#${current_server}"
+      server_description = ""
+      server_greeting = "Hi and welcome, enjoy our server."
+      master_server_url = ""
+      provider_name = "Bram Mittendorff"
+      provider_email = "bram@pescheck.nl"
+      provider_website = "pescheck.io"
+      known_keys_only = false
+      log_chat = false
+      log_server_actions = false
+      pause_server_if_no_clients = false
+      desync_debugging = false
+
+      [notifications]
+      park_award = true
+      park_marketing_campaign_finished = true
+      park_warnings = true
+      park_rating_warnings = true
+      ride_broken_down = true
+      ride_crashed = true
+      ride_casualties = true
+      ride_warnings = true
+      ride_researched = true
+      ride_stalled_vehicles = true
+      guest_warnings = true
+      guest_left_park = true
+      guest_queuing_for_ride = true
+      guest_on_ride = true1
+      guest_left_ride = true
+      guest_bought_item = true
+      guest_used_facility = true
+      guest_died = true
+
+      [font]
+      file_name = ""
+      font_name = ""
+      x_offset = 0
+      y_offset = 1
+      size_tiny = 1
+      size_small = 0
+      size_medium = 0
+      size_big = 0
+      height_tiny = 0
+      height_small = 0
+      height_medium = 0
+      height_big = 0
+      enable_hinting = true
+      hinting_threshold = 0
+
+      [plugin]
+      enable_hot_reloading = false
+      allowed_hosts = "0.0.0.0"
 
   - owner: root:root
     path: /home/${user}/.openttd/secrets.cfg
@@ -542,6 +809,7 @@ write_files:
       version_string = 12.1
       version_number = 1C186D64
       ini_version = 2
+
   - owner: root:root
     path: /etc/systemd/system/docker.openttd.service
     content: |
@@ -595,12 +863,51 @@ write_files:
       [Install]
       WantedBy=default.target
 
+  - owner: root:root
+    path: /etc/systemd/system/docker.openrct2.service
+    content: |
+      [Unit]
+      Description=OpenRCT2 Service
+      After=docker.service
+      Requires=docker.service
+
+      [Service]
+      User=${user}
+      Group=${user}
+      TimeoutStartSec=0
+      Restart=always
+      ExecStartPre=-/usr/bin/docker exec %n stop
+      ExecStartPre=-/usr/bin/docker rm %n
+      ExecStartPre=/usr/bin/docker pull corysanin/openrct2-cli:latest
+      ExecStart=/usr/bin/docker run \
+        -p 11753:11753 \
+        -v /home/${user}/.openrct2config:/home/openrct2/.config \
+        --name %n \
+        corysanin/openrct2-cli:latest \
+        host https://rijwielpaleis.com/clean-park-v3.park
+
+      [Install]
+      WantedBy=default.target
+
 runcmd:
-  - "chown -R ${user}:${user} /home/${user}/.openttd"
+  # openttd
+  - "chown -R ${user}:${user} /home/${user}"
   - "systemctl enable docker.openttd"
   - "systemctl start docker.openttd"
+  # openra
   - "systemctl enable docker.openra"
   - "systemctl start docker.openra"
+  # openrct2
+  - "curl -o /home/${user}/.openrct2config/OpenRCT2/plugin/anti-grief.js --create-dirs https://raw.githubusercontent.com/CorySanin/openrct2-ffa-plugin-suite/master/lib/anti-grief.js"
+  - "curl -o /home/${user}/.openrct2config/OpenRCT2/plugin/ownership.js --create-dirs https://raw.githubusercontent.com/CorySanin/openrct2-ffa-plugin-suite/master/lib/ownership.js"
+  - "curl -o /home/${user}/.openrct2config/OpenRCT2/plugin/rate-limit.js --create-dirs https://raw.githubusercontent.com/CorySanin/openrct2-ffa-plugin-suite/master/lib/rate-limit.js"
+  - "curl -o /home/${user}/.openrct2config/OpenRCT2/plugin/disable-track-designs.js --create-dirs https://raw.githubusercontent.com/CorySanin/openrct2-ffa-plugin-suite/master/lib/disable-track-designs.js"
+  - "curl -o /home/${user}/.openrct2config/OpenRCT2/plugin/remote-control.js --create-dirs https://raw.githubusercontent.com/CorySanin/openrct2-remote-control/master/lib/remote-control.js"
+  - "curl -o /home/${user}/.openrct2config/OpenRCT2/plugin/cheat-toggle.js --create-dirs https://raw.githubusercontent.com/CorySanin/openrct2-ffa-plugin-suite/master/lib/cheat-toggle.js"
+  - "curl -o /home/${user}/.openrct2config/OpenRCT2/plugin/ip-ban.js --create-dirs https://raw.githubusercontent.com/CorySanin/openrct2-ffa-plugin-suite/master/lib/ip-ban.js"
+  - "chown -R ${user}:${user} /home/${user}"
+  - "systemctl enable docker.openrct2"
+  - "systemctl start docker.openrct2"
 
 output:
   {
